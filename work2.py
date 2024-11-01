@@ -6,7 +6,7 @@ def MaxWater(Height:list):
     water=0
 
     while left<right:
-        length=right-left-1
+        length=right-left
         if Height[left]<Height[right]:
             left+=1
             water=big((small(Height[left],Height[right])*length),water)
