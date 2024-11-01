@@ -21,7 +21,13 @@ def Sort(m, n, nums1: list, nums2: list):
     return new_list
 
 
-test1 = [1, 2, 3, 4, 9, 100,200]
+test1 = [1, 2, 3, 4, 8, 100,200]
 test2 = [5, 7, 9, 11, 13, 15,114514]
 new_list = Sort(len(test1), len(test2), test1, test2)
 print(new_list)
+total=len(test1)+len(test2)
+mid=total//2
+if total % 2 ==0:
+    print("中位数是"+str(((new_list[mid]+new_list[mid-1])/2)))
+else :
+    print("中位数是"+str((new_list[mid])))
