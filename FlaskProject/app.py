@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify, session
 from flask_mysqldb import MySQL
 import os
+import mariadb
 app = Flask(__name__)
 app.secret_key = os.urandom(24)  # 用于管理session
 
@@ -12,9 +13,9 @@ app.config['MYSQL_DB'] = 'test1'
 
 mysql = MySQL(app)
 
-
-
-# 登录接口
+mariadb.pre_exec()
+mariadb.tables()
+mariadb.add_demo_data()
 @app.route('/login', methods=['POST'])
 def login():
     # 获取请求中的用户名和密码
@@ -68,4 +69,6 @@ def logout():
 
 
 if __name__ == '__main__':
+
     app.run(debug=True)
+
